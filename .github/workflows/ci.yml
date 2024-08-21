@@ -36,7 +36,8 @@ jobs:
       - name: Run tests
         run: |
           cd test-private
-          npm run test
+          mkdir -p test-results # Ensure test-results directory is created
+          npm run test 2>&1 | tee test-results/test-output.txt
         continue-on-error: true # Allows you to log results even if tests fail
 
       # Upload test results to AWS S3
