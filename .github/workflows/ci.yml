@@ -1,6 +1,8 @@
 name: Run Tests from Private Repo
 
 on:
+  repository_dispatch:
+    types: [run-tests]
   push:
     branches:
       - main
